@@ -1,0 +1,39 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+struct date
+{
+    short day = 0;
+    short month = 0;
+    int year = 0;
+};
+
+struct customer
+{
+    std::string last_name;
+    int hotel_number;
+    date date_of_arrive;
+    float price_of_living;
+};
+
+void found_customer(customer* some_customer, short array_size, std::string name_of_customer)
+{
+    for(short i = 0; i < array_size; i++)
+    {
+        if(some_customer[i].last_name == name_of_customer)
+        {
+            std::cout << "\n" << some_customer[i].hotel_number << "\n";
+        }
+    }
+}
+
+int main()
+{
+   const short array_size = 100;
+   customer* something = new customer[array_size];
+   something->last_name = "merzhew";
+   something->hotel_number = 12;
+   found_customer(something, array_size, "merzhew");
+
+}
